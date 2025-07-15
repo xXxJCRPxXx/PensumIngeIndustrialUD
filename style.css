@@ -1,0 +1,88 @@
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 20px;
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+h1 {
+  text-align: center;
+  color: #1a237e;
+  margin-bottom: 30px;
+}
+
+.semestres-container {
+  display: flex;
+  overflow-x: auto;
+  gap: 25px;
+  padding: 20px 10px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.semestre {
+  min-width: 230px;
+  padding: 15px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.semestre h3 {
+  margin-top: 0;
+  color: #0d47a1;
+  border-bottom: 2px solid #bbdefb;
+  padding-bottom: 8px;
+}
+
+.materia {
+  padding: 10px 12px;
+  margin: 8px 0;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 14px;
+}
+
+.materia:hover:not(.bloqueada) {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.disponible {
+  background-color: #1a237e;
+  color: white;
+}
+
+.bloqueada {
+  background-color: #bbdefb;
+  color: #333;
+  cursor: not-allowed;
+}
+
+.completada {
+  text-decoration: line-through;
+  opacity: 0.7;
+  background-color: #e0e0e0;
+  color: #616161;
+}
+
+/* Scrollbar personalizada */
+.semestres-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.semestres-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.semestres-container::-webkit-scrollbar-thumb {
+  background: #9fa8da;
+  border-radius: 4px;
+}
+
+.semestres-container::-webkit-scrollbar-thumb:hover {
+  background: #7986cb;
+}
