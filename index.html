@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pensum Ingeniería Industrial</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Pensum Ingeniería Industrial</h1>
+  <div class="semestres-container">
+    
+    <!-- SEMESTRE 1 -->
+    <div class="semestre">
+      <h3>Semestre 1</h3>
+      <div class="materia disponible" onclick="completarMateria('calculo-dif')">Cálculo Diferencial</div>
+      <div class="materia disponible" onclick="completarMateria('prog-basica')">Programación Básica</div>
+      <div class="materia disponible" onclick="completarMateria('catedra-caldas')">Cátedra Francisco José de Caldas</div>
+      <div class="materia disponible" onclick="completarMateria('prod-textos')">Producción y Comprensión de Textos</div>
+      <div class="materia disponible" onclick="completarMateria('seminario-ing')">Seminario de Ingeniería</div>
+      <div class="materia disponible" onclick="completarMateria('fund-quimicos')">Fundamentos Químicos y Bioquímicos</div>
+      <div class="materia disponible" onclick="completarMateria('dibujo-ing')">Dibujo en Ingeniería</div>
+    </div>
+
+    <!-- SEMESTRE 2 -->
+    <div class="semestre">
+      <h3>Semestre 2</h3>
+      <div class="materia bloqueada" id="fisica1" requisitos="calculo-dif">Física I: Mecánica Newtoniana</div>
+      <div class="materia bloqueada" id="calculo-int" requisitos="calculo-dif">Cálculo Integral</div>
+      <div class="materia bloqueada" id="algebra-lineal" requisitos="calculo-dif">Álgebra Lineal</div>
+      <div class="materia disponible" onclick="completarMateria('electiva-ext1')">Electiva Extrínseca I</div>
+      <div class="materia disponible" onclick="completarMateria('electiva-ext2')">Electiva Extrínseca II</div>
+      <div class="materia disponible" onclick="completarMateria('catedra-democracia')">Cátedra Democracia y Ciudadanía</div>
+      <div class="materia bloqueada" id="materiales-ind" requisitos="fund-quimicos">Materiales Industriales</div>
+    </div>
+
+    <!-- SEMESTRE 3 -->
+    <div class="semestre">
+      <h3>Semestre 3</h3>
+      <div class="materia bloqueada" id="prog-oop" requisitos="prog-basica">Programación Orientada a Objetos</div>
+      <div class="materia bloqueada" id="calculo-multi" requisitos="calculo-dif,calculo-int">Cálculo Multivariado</div>
+      <div class="materia disponible" onclick="completarMateria('electiva-ext3')">Electiva Extrínseca III</div>
+      <div class="materia disponible" onclick="completarMateria('etica')">Ética y Bioética</div>
+      <div class="materia bloqueada" id="termo-fluidos" requisitos="calculo-int">Termodinámica y Fluidos</div>
+      <div class="materia bloqueada" id="estadistica-prob" requisitos="calculo-int">Estadística y Probabilidad</div>
+      <div class="materia bloqueada" id="teoria-sistemas" requisitos="prog-basica">Teoría General de Sistemas</div>
+    </div>
+
+    <!-- SEMESTRE 4 -->
+    <div class="semestre">
+      <h3>Semestre 4</h3>
+      <div class="materia bloqueada" id="fisica2" requisitos="calculo-dif,fisica1">Física II: Electromagnetismo</div>
+      <div class="materia bloqueada" id="ecuaciones-dif" requisitos="calculo-int">Ecuaciones Diferenciales</div>
+      <div class="materia bloqueada" id="estadistica-inferencial" requisitos="estadistica-prob">Estadística Inferencial y Diseño de Experimentos</div>
+      <div class="materia bloqueada" id="economia1" requisitos="calculo-dif,estadistica-prob">Economía I</div>
+      <div class="materia bloqueada" id="procesos-quimicos" requisitos="materiales-ind,termo-fluidos">Procesos Químicos y Bioquímicos</div>
+      <div class="materia bloqueada" id="mecanica-aplicada" requisitos="fisica1,dibujo-ing,materiales-ind">Mecánica Aplicada</div>
+      <div class="materia disponible" onclick="completarMateria('electiva-ext4')">Electiva Extrínseca IV</div>
+    </div>
+
+    <!-- SEMESTRE 5 -->
+    <div class="semestre">
+      <h3>Semestre 5</h3>
+      <div class="materia bloqueada" id="fisica3" requisitos="calculo-int,fisica2">Física III: Ondas y Física Moderna</div>
+      <div class="materia disponible" onclick="completarMateria('electiva-int1')">Electiva Intrínseca I</div>
+      <div class="materia disponible" onclick="completarMateria('segunda-lengua1')">Segunda Lengua I</div>
+      <div class="materia disponible" onclick="completarMateria('electiva-int2')">Electiva Intrínseca II</div>
+      <div class="materia disponible" onclick="completarMateria('metodologia-inv')">Metodología de la Investigación</div>
+      <div class="materia bloqueada" id="contabilidad" requisitos="economia1">Contabilidad y Costos</div>
+      <div class="materia bloqueada" id="admin-organizaciones" requisitos="teoria-sistemas">Administración de las Organizaciones</div>
+      <div class="materia bloqueada" id="procesos-mecanicos" requisitos="procesos-quimicos,mecanica-aplicada">Procesos Mecánicos</div>
+    </div>
+
+    <!-- SEMESTRE 6 -->
+    <div class="semestre">
+      <h3>Semestre 6</h3>
+      <div class="materia bloqueada" id="ingenieria-economica" requisitos="contabilidad">Ingeniería Económica</div>
+      <div class="materia bloqueada" id="economia2" requisitos="economia1">Economía II</div>
+      <div class="materia bloqueada" id="diseño-producto" requisitos="procesos-mecanicos">Diseño Integrado de Producto y Proceso</div>
+      <div class="materia bloqueada" id="ingenieria-metodos" requisitos="procesos-mecanicos">Ingeniería de Métodos y Tiempos</div>
+      <div class="materia bloqueada" id="seguridad-higiene" requisitos="procesos-mecanicos">Seguridad e Higiene Ocupacional</div>
+      <div class="materia bloqueada" id="programacion-lineal" requisitos="algebra-lineal,ecuaciones-dif">Programación Lineal y Entera</div>
+      <div class="materia disponible" onclick="completarMateria('electiva-int3')">Electiva Intrínseca III</div>
+      <div class="materia disponible" onclick="completarMateria('derecho-empresarial')">Derecho Empresarial</div>
+    </div>
+
+    <!-- SEMESTRE 7 -->
+    <div class="semestre">
+      <h3>Semestre 7</h3>
+      <div class="materia bloqueada" id="emprendimiento" requisitos="ingenieria-economica,estadistica-inferencial,economia2">Emprendimiento Empresarial e Ideas de Negocios</div>
+      <div class="materia bloqueada" id="ergonomia" requisitos="procesos-mecanicos">Ergonomía</div>
+      <div class="materia bloqueada" id="control-calidad" requisitos="procesos-mecanicos">Control y Aseguramiento de la Calidad</div>
+      <div class="materia bloqueada" id="teoria-grafos" requisitos="programacion-lineal">Teoría de Grafos</div>
+      <div class="materia bloqueada" id="logistica1" requisitos="programacion-lineal">Logística Industrial I</div>
+      <div class="materia bloqueada" id="mercadotecnia" requisitos="economia1">Mercadotecnia</div>
+      <div class="materia disponible" onclick="completarMateria('electiva-int4')">Electiva Intrínseca IV</div>
+      <div class="materia disponible" onclick="completarMateria('electiva-int5')">Electiva Intrínseca V</div>
+      <div class="materia disponible" onclick="completarMateria('hombre-ecologia')">Hombre Sociedad y Ecología</div>
+    </div>
+
+    <!-- SEMESTRE 8 -->
+    <div class="semestre">
+      <h3>Semestre 8</h3>
+      <div class="materia bloqueada" id="gestion-operaciones" requisitos="estadistica-inferencial,programacion-lineal">Gestión de Operaciones</div>
+      <div class="materia bloqueada" id="gestion-calidad" requisitos="control-calidad">Gestión de Calidad</div>
+      <div class="materia bloqueada" id="gestion-ambiental" requisitos="procesos-quimicos">Gestión Ambiental</div>
+      <div class="materia bloqueada" id="logistica2" requisitos="gestion-operaciones,logistica1">Logística Industrial II</div>
+      <div class="materia bloqueada" id="procesos-decision" requisitos="teoria-grafos">Procesos de Decisión</div>
+      <div class="materia bloqueada" id="gestion-talento" requisitos="admin-organizaciones">Gestión del Talento Humano</div>
+      <div class="materia disponible" onclick="completarMateria('electiva-int6')">Electiva Intrínseca VI</div>
+      <div class="materia disponible" onclick="completarMateria('electiva-int7')">Electiva Intrínseca VII</div>
+      <div class="materia disponible" onclick="completarMateria('segunda-lengua2')">Segunda Lengua II</div>
+      <div class="materia disponible" onclick="completarMateria('catedra-contexto')">Cátedra de Contexto</div>
+    </div>
+
+    <!-- SEMESTRE 9 -->
+    <div class="semestre">
+      <h3>Semestre 9</h3>
+      <div class="materia bloqueada" id="gestion-produccion" requisitos="gestion-operaciones">Programación y Control de la Producción</div>
+      <div class="materia bloqueada" id="gestion-innovacion" requisitos="ingenieria-economica,mercadotecnia">Gestión e Innovación Tecnológica</div>
+      <div class="materia bloqueada" id="analisis-financiero" requisitos="ingenieria-economica">Análisis y Decisiones Financieras</div>
+      <div class="materia bloqueada" id="logistica3" requisitos="logistica2">Logística Industrial III</div>
+      <div class="materia bloqueada" id="trabajo-grado1" requisitos="metodologia-inv">Trabajo de Grado I</div>
+      <div class="materia disponible" onclick="completarMateria('historia-colombia')">Historia y Cultura Colombiana</div>
+      <div class="materia bloqueada" id="teoria-colas" requisitos="estadistica-inferencial,procesos-decision">Teoría de Colas y Simulación</div>
+      <div class="materia bloqueada" id="gerencia-estrategica" requisitos="emprendimiento,mercadotecnia,gestion-innovacion">Gerencia Estratégica</div>
+    </div>
+
+    <!-- SEMESTRE 10 -->
+    <div class="semestre">
+      <h3>Semestre 10</h3>
+      <div class="materia bloqueada" id="formulacion-proyectos" requisitos="analisis-financiero">Formulación, Gestión y Evaluación de Proyectos</div>
+      <div class="materia bloqueada" id="trabajo-grado2" requisitos="trabajo-grado1">Trabajo de Grado II</div>
+      <div class="materia disponible" onclick="completarMateria('electiva-int8')">Electiva Intrínseca VIII</div>
+      <div class="materia disponible" onclick="completarMateria('electiva-int9')">Electiva Intrínseca IX</div>
+      <div class="materia disponible" onclick="completarMateria('segunda-lengua3')">Segunda Lengua III</div>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
